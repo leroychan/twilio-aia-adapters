@@ -44,6 +44,15 @@
         "voice": "8FsOrsZSELg9otqX9nPu",
         "welcomeGreeting": "नमस्ते! मैं एक AI सहायक हूँ। मैं आपकी कैसे मदद कर सकता हूँ?"
     },
+    "id-ID": {
+        "friendlyName": "Indonesian",
+        "transcriptionProvider": "deepgram",
+        "transcriptionLanguage": "id-ID",
+        "ttsLanguage": "id-ID",
+        "ttsProvider": "Google",
+        "voice": "id-ID-Chirp3-HD-Aoede",
+        "welcomeGreeting": "halo saya asisten ai bagaimana saya bisa membantu anda"
+    },
     "ja-JP": {
         "friendlyName": "Japanese",
         "transcriptionProvider": "deepgram",

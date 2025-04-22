@@ -61,7 +61,15 @@ Language configurations can be easily added or modified by updating the `assets/
 
 All attributes provided in the Twilio AI Assistant's Tool - Input Schema will be transferred as task attributes in Twilio Flex.
 
-### 4. Twilio Flex Plugin: AI Assistant Summary
+### 4. Ready-to-Use Webhook: `/tools/redirect-call`
+
+| Query Parameter(s) | Required | Default Value | Description                                |
+| ------------------ | -------- | ------------- | ------------------------------------------ |
+| `redirectNumber`   | Required | N/A           | E.164 Phone Number to Redirect the Call To |
+
+Redirect voice call from AI Assistant to a user-input phone number
+
+### 5. Twilio Flex Plugin: AI Assistant Summary
 
 A lightweight Twilio Flex Plugin that showcases the Twilio AI Assistant's summary and sentiment, utilizing the task attributes `conversationSummary` and `conversationSentiment` passed from the AI Assistant's Tool execution during the Twilio Flex handover.
 

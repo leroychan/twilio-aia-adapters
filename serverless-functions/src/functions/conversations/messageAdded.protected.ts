@@ -103,9 +103,29 @@ export const handler: ServerlessFunctionSignature<
     /*
      * Step 1: Formulate Identities for End User and AI Assistant
      */
-    const identity = event.Author.includes(":")
+    let identity = event.Author.includes(":")
       ? event.Author
       : `user:${event.Author}`;
+
+    // For WebChat 3.x - Using Email for AIA Identity
+    if (identity.startsWith("user:FX")) {
+      console.log(
+        "[conversations][messageAdded] Identity starts with user:FX indiciating its a Webchat 3.X",
+        identity
+      );
+      const conversationAttributes = await client.conversations.v1
+        .services(event.ChatServiceSid)
+        .conversations(event.ConversationSid)
+        .fetch();
+
+      const parsedConversationAttributes = JSON.parse(
+        conversationAttributes.attributes
+      );
+
+      if (parsedConversationAttributes.pre_engagement_data?.email) {
+        identity = `email:${parsedConversationAttributes.pre_engagement_data.email}`;
+      }
+    }
 
     const aiAssistantIdentity = event.aiAssistantIdentity
       ? event.aiAssistantIdentity

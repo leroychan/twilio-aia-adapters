@@ -97,6 +97,9 @@ git clone https://github.com/leroychan/twilio-aia-adapters.git
 # Change to working directory
 cd twili-aia-adapters/serverless-functions
 
+# Copy and modify .env File
+cp .env.example .env
+
 # Install NPM packages
 npm install
 

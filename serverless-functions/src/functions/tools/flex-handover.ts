@@ -166,11 +166,23 @@ export const handler: ServerlessFunctionSignature<
         channelType = "sms";
         customerName = from;
         customerAddress = from;
-      } else if (identity.startsWith("FX")) {
-        // Flex webchat
+      } else if (identity.startsWith("FX") || traitName === "email") {
+        // Flex Webchat
+        // Assumption: Email Identity is associated to Flex Webchat
+        // -- Optain Participant Flex Context ID
+        let flexContextSID = from;
+        const conversationParticipant = await client.conversations.v1
+          .conversations(conversationsSid)
+          .participants.list({ limit: 1 });
+        if (
+          conversationParticipant.length === 1 &&
+          conversationParticipant[0]?.identity?.startsWith("FX")
+        ) {
+          flexContextSID = conversationParticipant[0].identity;
+        }
         channelType = "web";
-        customerName = from;
-        customerAddress = from;
+        customerName = flexContextSID;
+        customerAddress = flexContextSID;
         try {
           const user = await client.conversations.v1.users(identity).fetch();
           from = user.friendlyName;

@@ -174,7 +174,7 @@ twilio serverless:deploy
    - Name: `Twilio Flex Handover`
    - Description: `When the user requests to talk to a live agent or an actual human. This is meant to transfer call to a contact center`
    - Select HTTP Method: `POST`
-   - Webhook URL: `https://twilio-aia-adapters-XXXX-dev.twil.io/tools/flex-handover?workfspaceSid=WSxxxxx&workflowSid=WWxxxxxx`
+   - Webhook URL: `https://twilio-aia-adapters-XXXX-dev.twil.io/tools/flex-handover?workspaceSid=WSxxxxx&workflowSid=WWxxxxxx`
    - Input Schema:
      ```javascript
      export type Data = {

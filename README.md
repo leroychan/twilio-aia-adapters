@@ -95,7 +95,7 @@ A lightweight Twilio Flex Plugin that showcases the Twilio AI Assistant's summar
 git clone https://github.com/leroychan/twilio-aia-adapters.git
 
 # Change to working directory
-cd twili-aia-adapters/serverless-functions
+cd twilio-aia-adapters/serverless-functions
 
 # Copy and modify .env File
 cp .env.example .env
